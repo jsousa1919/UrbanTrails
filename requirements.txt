@@ -1,0 +1,9 @@
+Django
+psycopg2
+django-pipeline
+South
+django-profiler
+docutils
+gunicorn
+newrelic
+yuicompressor
