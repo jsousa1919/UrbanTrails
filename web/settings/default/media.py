@@ -20,12 +20,14 @@ PATENT_TEMPLATE_DIRECTORY = APP_ROOT + '/templates/'
 
 PIPELINE_JS = {
     'third_party': {'source_filenames': (
-        'js/jquery-1.9.0.js',
+        'js/third_party/jquery-1.9.1.js',
     ), 'output_filename': 'js/third_party.js'},
     'common': {'source_filenames': (
+        'js/site.js',
         'js/common.js',
         'js/map.js',
-    ), 'output_filename': 'js/common.js'},
+        'js/mapmaker.js',
+    ), 'output_filename': 'js/global.js'},
     'deferred': {'source_filenames': ('js/events.js',),
                  'output_filename': 'js/deferred.js',
                  'extra_context': {'defer': True}},
@@ -34,6 +36,7 @@ PIPELINE_JS = {
 PIPELINE_CSS = {
     'style': {'source_filenames': (
         'css/base.css',
+        'css/map.css',
     ), 'output_filename': 'css/style.css'},
 }
 

@@ -2,6 +2,12 @@
 import os
 import sys
 
+SYS_ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '../'))
+
+sys.path += [
+    os.path.abspath(os.path.join(SYS_ROOT, 'src')),
+]
+
 if __name__ == "__main__":
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings.local")
 

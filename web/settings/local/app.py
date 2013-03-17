@@ -11,6 +11,13 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    'django.contrib.gis',
+    'pipeline',
+    'south',
+    'gunicorn',
+    'django_extensions',
+    'debug_toolbar',
+    'trails'
 )
 
 DEBUG_TOOLBAR_CONFIG = {
