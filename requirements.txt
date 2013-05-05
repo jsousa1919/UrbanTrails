@@ -7,3 +7,4 @@ docutils
 gunicorn
 newrelic
 yuicompressor
+django-socialauth

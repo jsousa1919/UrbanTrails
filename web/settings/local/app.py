@@ -17,7 +17,9 @@ INSTALLED_APPS = (
     'gunicorn',
     'django_extensions',
     'debug_toolbar',
-    'trails'
+    'trails',
+    'socialauth',
+    'openid_consumer',
 )
 
 DEBUG_TOOLBAR_CONFIG = {
