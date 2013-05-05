@@ -2,7 +2,10 @@ __author__ = 'norad'
 
 from django.contrib.gis.db import models
 
-from tags.models import Tag
+
+class Tag(models.Model):
+    name = models.CharField(max_length=32)
+    description = models.TextField()
 
 
 class GoogleReference(models.Model):
@@ -14,11 +17,13 @@ class Venue(models.Model):
     description = models.TextField()
     location = models.PointField()
     reference = models.ForeignKey(GoogleReference, null=True, blank=True)
+    tags = models.ManyToManyField(Tag)
 
 
 class Trail(models.Model):
     name = models.CharField(max_length=64)
     description = models.TextField()
+    tags = models.ManyToManyField(Tag)
 
 
 class TrailVenue(models.Model):

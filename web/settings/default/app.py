@@ -1,16 +1,13 @@
 __author__ = 'norad'
 
 SECRET_KEY = '!^n)&amp;d21t=nb0xx-tp++orbx2$i-1kt5!mcdg9g&amp;&amp;qzdf%jo9-'
+ALLOWED_HOSTS = []
+SITE_ID = 1
 
 ADMINS = (
-# ('Your Name', 'your_email@example.com'),
+    ('Justin Sousa', 'jsousa1919@gmail.com'),
 )
-
 MANAGERS = ADMINS
-
-ALLOWED_HOSTS = []
-
-SITE_ID = 1
 
 ROOT_URLCONF = 'urls'
 
@@ -19,9 +16,9 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.auth.middleware.RemoteUserMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    # Uncomment the next line for simple clickjacking protection:
-    # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
 # A sample logging configuration. The only tangible logging

@@ -4,3 +4,4 @@ django-extensions
 ipython
 ipdb
 django-cache-panel
+werkzeug

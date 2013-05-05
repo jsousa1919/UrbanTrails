@@ -1,6 +1,14 @@
 *.log
 *.pot
 *.pyc
-local_settings.py
-.idea
+*~
+
+.idea/
 static/
+bin/
+include/
+lib/
+local/
+share/
+
+
