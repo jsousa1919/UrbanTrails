@@ -7,8 +7,8 @@
 static/
 bin/
 include/
+/local
 lib/
-local/
 share/
 
 

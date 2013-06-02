@@ -17,7 +17,10 @@ INSTALLED_APPS = (
     'gunicorn',
     'django_extensions',
     'debug_toolbar',
-    'trails'
+    'accounts',
+    'common',
+    'tags',
+    'trails',
 )
 
 DEBUG_TOOLBAR_CONFIG = {

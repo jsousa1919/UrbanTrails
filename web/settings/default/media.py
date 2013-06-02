@@ -11,10 +11,11 @@ STATICFILES_DIRS = (
 
 STATIC_URL = '/static/'
 STATIC_DOC_ROOT = APP_ROOT + STATIC_URL
+STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
 
 PIPELINE_YUI_BINARY = '/usr/bin/yui-compressor'
 PIPELINE_YUI_CSS_ARGUMENTS = ''
-PIPELINE_YUI_JS_ARGUMENTS = ''
+PIPELINE_YUI_JS_ARGUMENTS = '--nomunge'
 
 PATENT_TEMPLATE_DIRECTORY = APP_ROOT + '/templates/'
 
@@ -39,6 +40,3 @@ PIPELINE_CSS = {
         'css/map.css',
     ), 'output_filename': 'css/style.css'},
 }
-
-STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
-PIPELINE_YUI_JS_ARGUMENTS = '--nomunge'
