@@ -20,23 +20,39 @@ PIPELINE_YUI_JS_ARGUMENTS = '--nomunge'
 PATENT_TEMPLATE_DIRECTORY = APP_ROOT + '/templates/'
 
 PIPELINE_JS = {
-    'third_party': {'source_filenames': (
-        'js/third_party/jquery-1.9.1.js',
-    ), 'output_filename': 'js/third_party.js'},
-    'common': {'source_filenames': (
-        'js/site.js',
-        'js/common.js',
-        'js/map.js',
-        'js/mapmaker.js',
-    ), 'output_filename': 'js/global.js'},
-    'deferred': {'source_filenames': ('js/events.js',),
-                 'output_filename': 'js/deferred.js',
-                 'extra_context': {'defer': True}},
+    'third_party': {
+        'source_filenames': (
+            'js/third_party/jquery-1.9.1.js',
+            'js/third_party/jquery-ui-1.10.3.custom.js',
+            'js/third_party/jquery.screwdefaultbuttonsV2.js',
+        ),
+        'output_filename': 'js/third_party.js'
+    },
+    'common': {
+        'source_filenames': (
+            'js/site.js',
+            'js/common.js',
+            'js/map.js',
+            'js/mapmaker.js',
+        ),
+        'output_filename': 'js/global.js'
+    },
+    'deferred': {
+        'source_filenames': (
+            'js/events.js',
+        ),
+        'output_filename': 'js/deferred.js',
+        'extra_context': {'defer': True}
+    },
 }
 
 PIPELINE_CSS = {
-    'style': {'source_filenames': (
-        'css/base.css',
-        'css/map.css',
-    ), 'output_filename': 'css/style.css'},
+    'style': {
+        'source_filenames': (
+            'css/third_party/jquery-ui-1.10.3.custom.css',
+            'css/base.css',
+            'css/map.css',
+        ),
+        'output_filename': 'css/style.css'
+    },
 }

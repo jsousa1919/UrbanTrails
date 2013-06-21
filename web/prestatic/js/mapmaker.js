@@ -64,7 +64,38 @@
             google.maps.event.addListener(site.maps.map, 'dblclick', function () {
                 clearTimeout(site.maps.clickTimeout);
             });
+            site(".tool").tool();
         };
     site.extend(site.maps, pub);
     site.events.mapmaker = events;
+
+    site.widget("custom.tool", {
+        _create: function () {
+            this.label = site("<label></label>")
+                .attr("for", this.element.attr("id"))
+                .attr("class", "tool")
+                .text(this.element.text());
+
+            this.input = site("<input type='radio' />")
+                .attr("id", this.element.attr("id"))
+                .attr("name", this.element.data("name"))
+                .val(this.element.val());
+
+            this.element.empty();
+            this.element.removeClass("tool");
+            this.element.append(this.label);
+            this.element.append(this.input);
+
+            if (this.element.data("default") === true) {
+                this.input.prop("checked", true);
+            }
+
+            this.input.button({
+                icons: {
+                    primary: this.element.data("tool")
+                },
+                text: false
+            });
+        }
+    })
 }(site));

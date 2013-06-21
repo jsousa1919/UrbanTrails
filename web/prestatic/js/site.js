@@ -1,7 +1,7 @@
 (function (jQuery) {
     "use strict";
     var site = jQuery.noConflict(true);
-    site.fx.interval = 42; //24fps (This is what movies run at so it's good enough for the site
+    site.fx.interval = 24; //24fps (This is what movies run at so it's good enough for the site
 
     if (!window.site) {
         window.site = site;

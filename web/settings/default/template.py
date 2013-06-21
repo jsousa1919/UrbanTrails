@@ -9,6 +9,7 @@ TEMPLATE_LOADERS = ('django.template.loaders.filesystem.Loader', 'django.templat
 TEMPLATE_DIRS = (APP_ROOT + '/templates')
 
 TEMPLATE_CONTEXT_PROCESSORS = (
+    'common.context.common',
     'django.contrib.auth.context_processors.auth',
     'django.core.context_processors.debug',
     'django.core.context_processors.i18n',
