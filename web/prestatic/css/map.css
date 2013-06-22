@@ -54,7 +54,7 @@
 .suggest_window .address {
     margin-top: 4px;
 }
-.tool {
+.tool label {
     height: 100px;
     width: 100px;
 }
@@ -74,4 +74,13 @@
     margin-left: -40px !important;
     margin-top: -40px !important;
 }
+.spyglass {
+    background-image: url('/static/images/search.png') !important;
+    background-size: 80px 80px;
+    width: 80px;
+    height: 80px;
+    margin-left: -40px !important;
+    margin-top: -40px !important;
+}
+
 

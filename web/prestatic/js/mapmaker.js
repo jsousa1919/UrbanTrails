@@ -58,13 +58,19 @@
         events = function () {
             google.maps.event.addListener(site.maps.map, 'click', function (event) {
                 site.maps.clickTimeout = setTimeout(function () {
-                    site.maps.searchNearby(event.latLng);
+                    site(".tool input:checked").parent().tool("fire", 'click', event);
                 }, 200);
             });
             google.maps.event.addListener(site.maps.map, 'dblclick', function () {
                 clearTimeout(site.maps.clickTimeout);
             });
-            site(".tool").tool();
+            site("#line").tool();
+            site("#cursor").tool();
+            site("#spyglass").tool({
+                click: function (event) {
+                    site.maps.searchNearby(event.latLng);
+                }
+            });
         };
     site.extend(site.maps, pub);
     site.events.mapmaker = events;
@@ -73,16 +79,13 @@
         _create: function () {
             this.label = site("<label></label>")
                 .attr("for", this.element.attr("id"))
-                .attr("class", "tool")
                 .text(this.element.text());
 
             this.input = site("<input type='radio' />")
                 .attr("id", this.element.attr("id"))
-                .attr("name", this.element.data("name"))
-                .val(this.element.val());
+                .attr("name", "radio");
 
             this.element.empty();
-            this.element.removeClass("tool");
             this.element.append(this.label);
             this.element.append(this.input);
 
@@ -92,10 +95,22 @@
 
             this.input.button({
                 icons: {
-                    primary: this.element.data("tool")
+                    primary: this.element.attr('class')
                 },
                 text: false
             });
+            this.element.removeClass();
+            this.element.addClass("tool");
+
+            this._on(this.label, {
+                click: "_select"
+            })
+        },
+        _select: function () {
+            this.input.prop('checked', true);
+        },
+        fire: function (type, event) {
+            (this.options[type] || function () {})(event);
         }
     })
 }(site));
