@@ -25,6 +25,7 @@ PIPELINE_JS = {
             'js/third_party/jquery-1.9.1.js',
             'js/third_party/jquery-ui-1.10.3.custom.js',
             'js/third_party/jquery.screwdefaultbuttonsV2.js',
+            'js/third_party/jquery.toolbox.js'
         ),
         'output_filename': 'js/third_party.js'
     },

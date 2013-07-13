@@ -64,93 +64,20 @@
             google.maps.event.addListener(site.maps.map, 'dblclick', function () {
                 clearTimeout(site.maps.clickTimeout);
             });
-            site("#line").tool();
-            site("#cursor").tool();
+            site("#line").tool({
+                workspace: "#test",
+                click: function () { alert("line"); }
+            });
+            site("#cursor").tool({
+                workspace: "#test",
+                click: function () { alert("cursor"); }
+            });
             site("#spyglass").tool({
-                click: function (event) {
-                    site.maps.searchNearby(event.latLng);
-                }
+                workspace: "#test",
+                click: function () { alert("spyglass"); }
             });
         };
     site.extend(site.maps, pub);
     site.events.mapmaker = events;
 
-    site.widget("custom.tool", {
-        _create: function () {
-            var input_id = this.element.attr("id") + 'input',
-                self = this,
-                type;
-            this.label = site("<label></label>")
-                .attr("for", input_id)
-                .text(this.element.text());
-
-            this.input = site("<input type='radio' />")
-                .attr("id", input_id)
-                .attr("name", "radio");
-
-            this.element.empty();
-            this.element.append(this.label);
-            this.element.append(this.input);
-
-            if (this.element.data("default") === true) {
-                this.input.prop("checked", true);
-            }
-
-            this.input.button({
-                icons: {
-                    primary: this.element.attr('class')
-                },
-                text: false
-            });
-            this.element.removeClass();
-            this.element.addClass("tool");
-
-            this._on(this.label, {
-                click: "_select"
-            });
-
-            for (type in this.options.events) {
-                ast(this.options.target).on(type, function (event) {
-                    if (self.input.is(':checked')) {
-                        self.options.events[type](event);
-                    }
-                });
-            }
-        },
-        _select: function () {
-            this.input.prop('checked', true);
-        },
-        _setIcon: function () {
-            var w, iw, h, ih;
-            this.label.attr('title', this.options.text || '');
-            if (this.options.icon) {
-                this.input.button({
-                    icons: {
-                        primary: 'fake_class'
-                    },
-                    text: false
-                });
-                this.icon = this.label.find(".ui-button-icon-primary");
-                this.icon.removeClass('a');
-                this.icon.css('background-image', this.options.icon);
-
-                iw = parseInt(this.options.icon_width, 10);
-                ih = parseInt(this.options.icon_height, 10);
-                w = parseInt(this.options.width, 10);
-                h = parseInt(this.options.height, 10);
-                this.icon.css('background-size', (w ? w + 'px' : 'auto') + ' ' + (h ? h + 'px' : 'auto'));
-            } else {
-                this.input.button();
-            }
-        },
-        _setOption: function (key, value) {
-            var type;
-            this._super( key, value );
-            this._setIcon();
-
-        },
-        fire: function (type, event) {
-            (this.options.events[type] || function () {})(event);
-        }
-    })
 }(site));
