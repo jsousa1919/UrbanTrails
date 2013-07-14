@@ -61,6 +61,9 @@
             });
             site("#line").tool({
                 workspace: site.maps.workspace,
+                group: "tool",
+                image_class: "line",
+                text: "Line",
                 map_events: {
                     click: function (e) {
                         alert("line");
@@ -70,6 +73,10 @@
             });
             site("#cursor").tool({
                 workspace: site.maps.workspace,
+                group: "tool",
+                image_class: "cursor",
+                text: "Cursor",
+                default: true,
                 map_events: {
                     click: function (e) {
                         alert("cursor");
@@ -80,6 +87,9 @@
             });
             site("#spyglass").tool({
                 workspace: site.maps.workspace,
+                group: "tool",
+                image_class: "spyglass",
+                text: "Spyglass",
                 map_events: {
                     click: function (e) {
                         alert("spyglass");

@@ -50,33 +50,26 @@
 .suggest_window .address {
     margin-top: 4px;
 }
+
 .tool label {
     height: 100px;
     width: 100px;
 }
-.cursor {
+.tool .ui-button-icon-primary {
+    background-size: 80px 80px;
+    width: 80px;
+    height: 80px;
+    margin-left: -40px !important;
+    margin-top: -40px !important;
+}
+.tool .cursor {
     background-image: url('/static/images/cursor.png') !important;
-    background-size: 80px 80px;
-    width: 80px;
-    height: 80px;
-    margin-left: -40px !important;
-    margin-top: -40px !important;
 }
-.line {
+.tool .line {
     background-image: url('/static/images/line.png') !important;
-    background-size: 80px 80px;
-    width: 80px;
-    height: 80px;
-    margin-left: -40px !important;
-    margin-top: -40px !important;
 }
-.spyglass {
+.tool .spyglass {
     background-image: url('/static/images/search.png') !important;
-    background-size: 80px 80px;
-    width: 80px;
-    height: 80px;
-    margin-left: -40px !important;
-    margin-top: -40px !important;
 }
 
 
