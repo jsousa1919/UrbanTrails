@@ -31,29 +31,25 @@
                 text: false
             });
 
-            this.workspace = site(this.options.workspace).workspace({
-                map: this.options.map
-            });
-
             this._on(this.element, {
                 click: "_select"
             });
 
             if (this.options.dom_events !== undefined) {
                 site.each(self.options.dom_events, function (event, f) {
-                    self.workspace.workspace('request_dom_event', event);
+                    self.options.workspace.workspace('request_dom_event', event);
                 });
             }
 
             if (this.options.map_events !== undefined) {
                 site.each(self.options.map_events, function (event, f) {
-                    self.workspace.workspace('request_map_event', event);
+                    self.options.workspace.workspace('request_map_event', event);
                 });
             }
         },
         _select: function () {
             this.input.prop('checked', true);
-            this.workspace.workspace('set_tool', this)
+            this.options.workspace.workspace('set_tool', this)
         },
         trigger: function (type, event, e) {
             this.options[type][event](e)

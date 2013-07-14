@@ -56,9 +56,11 @@
             }
         },
         events = function () {
+            site.maps.workspace = site.maps.map_container.workspace({
+                map: site.maps.map
+            });
             site("#line").tool({
-                workspace: site.maps.map_container,
-                map: site.maps.map,
+                workspace: site.maps.workspace,
                 map_events: {
                     click: function (e) {
                         alert("line");
@@ -67,8 +69,7 @@
                 }
             });
             site("#cursor").tool({
-                workspace: site.maps.map_container,
-                map: site.maps.map,
+                workspace: site.maps.workspace,
                 map_events: {
                     click: function (e) {
                         alert("cursor");
@@ -78,8 +79,7 @@
                 }
             });
             site("#spyglass").tool({
-                workspace: site.maps.map_container,
-                map: site.maps.map,
+                workspace: site.maps.workspace,
                 map_events: {
                     click: function (e) {
                         alert("spyglass");
