@@ -3,13 +3,9 @@
     width: 100%;
 }
 #world {
-    border-radius: 50%;
-    -moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
     box-shadow: 0 0 15px #0000FF;
     height: 450px;
     margin: auto;
-    overflow: hidden;
     vertical-align: middle;
     width: 900px;
 }

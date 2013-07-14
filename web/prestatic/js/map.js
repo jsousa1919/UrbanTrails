@@ -122,7 +122,8 @@
             }
         },
         events = function () {
-            site.maps.map = new google.maps.Map(document.getElementById("map_canvas"), priv.defaultMapOptions);
+            site.maps.map_container = site("#map_canvas");
+            site.maps.map = new google.maps.Map(site.maps.map_container[0], priv.defaultMapOptions);
             site.maps.places = new google.maps.places.PlacesService(site.maps.map);
             site.maps.infoWindow = new google.maps.InfoWindow();
 

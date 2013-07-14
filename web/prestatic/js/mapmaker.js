@@ -56,25 +56,36 @@
             }
         },
         events = function () {
-            google.maps.event.addListener(site.maps.map, 'click', function (event) {
-                site.maps.clickTimeout = setTimeout(function () {
-                    site(".tool input:checked").parent().tool("fire", 'click', event);
-                }, 200);
-            });
-            google.maps.event.addListener(site.maps.map, 'dblclick', function () {
-                clearTimeout(site.maps.clickTimeout);
-            });
             site("#line").tool({
-                workspace: "#test",
-                click: function () { alert("line"); }
+                workspace: site.maps.map_container,
+                map: site.maps.map,
+                map_events: {
+                    click: function (e) {
+                        alert("line");
+                        alert(e.latLng);
+                    }
+                }
             });
             site("#cursor").tool({
-                workspace: "#test",
-                click: function () { alert("cursor"); }
+                workspace: site.maps.map_container,
+                map: site.maps.map,
+                map_events: {
+                    click: function (e) {
+                        alert("cursor");
+                        alert(e.latLng);
+                        pub.searchNearby(e.latLng);
+                    }
+                }
             });
             site("#spyglass").tool({
-                workspace: "#test",
-                click: function () { alert("spyglass"); }
+                workspace: site.maps.map_container,
+                map: site.maps.map,
+                map_events: {
+                    click: function (e) {
+                        alert("spyglass");
+                        alert(e.latLng);
+                    }
+                }
             });
         };
     site.extend(site.maps, pub);
