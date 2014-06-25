@@ -1,0 +1,3 @@
+include urbantrails/config/deployment.ini_tmpl
+recursive-include urbantrails/public *
+recursive-include urbantrails/templates *
