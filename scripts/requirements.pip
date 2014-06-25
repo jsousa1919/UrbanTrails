@@ -1,0 +1,5 @@
+pylons
+postgres
+sqlalchemy
+ipython
+mako

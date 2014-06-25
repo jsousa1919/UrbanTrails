@@ -1,0 +1,9 @@
+source consts
+
+./create_template_postgis-debian.sh
+echo "database password? "
+read PASS
+psql -c "create user $USER with password '$PASS'"
+createdb -T template_postgis urbantrails
+psql -c "grant all privileges on database urbantrails to $USER"
+
